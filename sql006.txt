@@ -1,0 +1,14 @@
+SQL Function :-->
+
+SQL Function is predefind to perform some specific task.
+thre are tow types of Function 
+
+1> single row Function 
+2> multi row Function
+1> single row Function
+        work for the rows but use the multiple answer.
+2> multi row Function -> 
+        it works for all the rows but use the single answer
+
+**************************************************************************      
+create table

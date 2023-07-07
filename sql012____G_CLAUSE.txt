@@ -1,0 +1,27 @@
+ORDER BY---
+        TO ARRANGE THE DATA Ascending AND Decending ORDER
+        DEFAULT IT WILL TAKE Ascending
+
+  syantex :
+        1>  select -----
+        2>  from table_name
+        3>  where condition 
+        4>  ORDER by column_name ASC/DESC,column_name ASC/DESC,-----------;
+
+select sal 
+        from emp 
+        ORDER BY sal asc;
+        
+        SELECT SAL 
+                FROM EMP
+                ORDER BY SAL DESC;
+
+        SELECT DEPTNO 
+                FROM EMP
+                ORDER BY JOB DESC; 
+
+        SELECT JOB
+                FROM EMP 
+                WHERE JOB IN('SALESMAN'.'CLEARK','MANAGER'
+
+        

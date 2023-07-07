@@ -1,0 +1,69 @@
+WAQTD third lowest salary
+
+select min(sal)
+         from emp 
+         where sal >(select min(sal) 
+                     from emp
+                );
+
+
+select min(sal)
+from emp
+where sal=(
+   select sal
+    from ( select sal from
+   emp order by sal asc
+)
+where rownum=3);
+
+*****************************************
+create table vote(
+   vid number(3) primary key,
+   vname varchar(10) not null,
+   age number(3) check (age>18),
+   loc varchar(10) default ('India')
+   ); 
+   insert into vote values(1,'RAM',20,
+                  'Banaglore');
+
+     insert into vote(vid,vname,age)
+       values(4,'Lksh',34);
+
+
+
+        alter table
+ vote add
+ column 
+ gender varchar(3) check (gender in('M','F'));
+
+*******************************************************************
+                           *
+                           *
+MOCK Prepration            *
+                           *
+*******************************************************************
+select max(sal) from sal<(select max(sal) from emp);
+
+These are the main differences between the WHERE and HAVING clauses in SQL. 
+
+      The WHERE clause filters rows before any grouping or aggregation takes place,
+
+      while the HAVING clause filters groups after grouping and aggregation.
+
+    WAQTD ename,comm which is working in sales department
+
+        select ename,comm from emp where deptno=
+                (select deptno from dept where dname='SALES');
+
+
+                select * from emp where rownum in (1);
+
+
+
+
+
+
+
+
+
+

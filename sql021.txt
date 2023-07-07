@@ -1,0 +1,56 @@
+Normalization:
+
+        dividing one bigger table to smaller table making relationship is 
+        known as Normalization .
+        it is used to reduce
+                1> insertion anomaly
+                2> updation anomaly
+                3> delition anomaly
+        it minimize the redundecy
+1> insertion anomaly
+        while inserting table data in table unnecessarly multiple type is known as
+        insertion anomaly.
+
+2> updation anomaly:
+        if we try to update one particular data from one table then it will update all dats'S
+        which same records in that table it is known as updation anomaly.
+
+3> delition anomaly:
+        same name multiple records are available in a table and we try to delete
+        one particular data then it will delete all records this kind of problem 
+        is known as delition anomaly .
+
+        to solve this three types of anomaly we are using Normalization
+
+Normalization
+        1NF ( FIRst Normalization )
+        2NF ( second Normalization )
+        3NF ( FIRst Normalization )
+
+FIRst Normalization rules
+        1> in single attribute (column ) should be present
+        2> same name multiple attribute can't present 
+        3> order does't matter
+second Normalization rules
+        1> FIRst Normalization rules should follow
+        2> no  partial dependecy
+
+        NOte :
+         partial dependecy :
+                all coloumn should be depend are primary key
+                that is known as partial dependecy ..
+         No partial dependecy:
+                if any coloumn not depending on primary key is known as no partial 
+                dependecy
+
+third Normalization :
+
+        1> 2NF should be falow
+        2> no trasique dependecy 
+        3> non primary and not primary two coloumns can't depend each other
+
+        WAQTD to check in banana how many a are available :
+        select substr
+
+
+       

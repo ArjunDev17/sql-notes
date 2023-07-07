@@ -1,0 +1,56 @@
+All query's 
+
+update emp set sal=500 what ename='ward';
+update emp set sal=800 where job='SALESMAN';
+
+
+DIFFRENCE BETWEEN Foreign KEY AND primary KEY
+*****Constraints
+ DML
+ DDL
+ 
+ **********************************************************************
+ 23/05/23
+ WAQTD highest salary and that person in which department working
+   SQL>  select max(sal) 
+         from emp 
+         where sal<(select max(sal) from emp);
+
+  SQL> select deptno from emp where sal=(select max(sal) 
+         from emp 
+         where sal<(select max(sal) from emp));
+  SQL> select dname from dept where deptno=(
+                                        select deptno from emp where sal=(select max(sal) 
+                                        from emp where sal<(select max(sal) from emp))
+                                );
+1> WAQTD name of employees
+SQL> select ename ,d.loc from emp e inner join dept d on e.deptno=d.deptno;
+2> 
+        SQL> select ename,d.dname from emp e  inner join dept on 
+                 where job=(select job from emp where job='SALES') ;
+3>
+SQL>select ename,deptno,comm,d.dname from emp e,dept d where e.deptno=d.deptno and
+                        empno=(select mgr from emp where ename='SMITH');
+8> select ename ,deptno from emp where max(sal);
+
+********
+select ename,dname,hiredate from emp e,dept d where e.deptno=d.deptno
+                        and to_char(hiredate,'YYYY')=1987;
+******
+select ename,dname,hiredate from emp e,dept d 
+        where e.deptno=d.deptno and hiredate like '%87%';
+
+select ename,d.dname,sal from emp e inner join dept d
+        on e.deptno=d.deptno and ename like 'S%' and dname like 'S%';
+
+6 ..
+select d.dname,sal from emp e inner join dept d 
+        on e.deptno=d.deptno
+
+  //for 6 problem
+  select (sal*25/100) from emp inner join dept
+  on emp.deptno=dept.deptno 
+   where sal in
+        ( select sal from emp where sal<2500 and 
+        (select deptno from dept where loc='NEW YORK'));
+     

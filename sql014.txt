@@ -1,0 +1,1 @@
+WAQTD all the details of the employee who get third highest sal .

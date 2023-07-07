@@ -1,0 +1,267 @@
+index-
+        it is used for quick search
+        it will reduce CPU cost
+        we can create a index when we are putting frequently condition on same column
+cluster index-->
+        in this we can create only one index in table
+        it is faster then non cluster index
+        in cluster index we store data's in  arrange data.
+non cluster index
+        in this we can create many index in table
+        it is slower then  cluster index
+        in cluster index we are not storeing data's in  arrange data 
+         so that it is taking more space.
+
+Syantax -->
+        set autotrace on explain;
+        ........................
+        .......................
+        set autotrace off explain;
+
+        create index index_Name on table_Name(colum_name);
+        drop index index_Name;
+
+***********************************************************************************
+Constraints ->
+1> not-null
+2> default
+3> check
+4> Primary key
+5> Foreign key
+6> unique key
+
+1> not-null->
+        it will  accept not-null value
+        it will never accept null value
+        duplicate are allowed
+        in one table more then on not null possible
+2> default->
+        it is used to set the default value.
+        in a table one or more default can be present .
+
+3> check ->
+        this constraint is used to provide ADDitional validation to the column .
+        whenever user insert the data and if user is not 
+          following that condition it will giver ERROR
+        > in one table more then one check constraint are possible
+          Example :-> age number(3) check(age>18);
+4> unique key-->
+        whenever we want to insert entity which is different to another entity
+        then we should go with unique constraints .
+        it will accep null value .
+        it will not accept duplicate
+        in one table more then one unique kyes are possible.
+        Example-->
+        usn,mOBILE NUMBER
+5> PRIMARY key-->
+        IN EVERY TABLE ONE PRIMARY KEY IS NECESSARY BY WHICH WE CAN
+         access datawithout any confusion .
+        1> in one tablle only one primary key is possible .
+        2> it is a combination of not null + unique key .
+        3> it will not accept null value .
+        4> duplicate are not allowed.
+6> Foreign key -->
+        this constraint basically used to creat one relation between another table .
+        1> in one table more then one Foreign key is possible.
+        2> it accept null value 
+        3> it accept duplicate value.
+
+**********************************************************
+DDL ]-> data defianation language :
+
+        1> create
+        2> alter
+                1>add
+                2>modify
+                        ALTER TABLE table_name
+                        MODIFY column_name new_data_type;
+
+                3>rename
+                        ALTER TABLE table_name
+                        RENAME COLUMN old_column_name TO new_column_name;
+
+                4>drop :
+                        ALTER TABLE demo
+                        DROP COLUMN marks;
+                        **************************************
+        3> drop
+                drop table table_Name
+        4> truncate-->
+                TRUNCATE TABLE table_name;
+
+drop table will go recyclebin from there we can retrive our data using flashback :
+> Syantax: show recyclebin;
+        flashback table table_Name to before drop;
+
+> if we want to delete table from  recyclebin
+        purge table table_Name ;
+
+> purged recyclebin ; it will clear recyclebin .
+               
+
+*************************************
+    **  create ->
+        create table demo(usn number(15) primary key,
+                        name varchar(10));
+    **  alter
+                1>add
+                        alter table demo
+                        add age number(3) check(age>18);
+                2>modify
+                        alter table demo
+                        modify usn varchar(10);
+                3>rename :
+                        ALTER TABLE demo
+                        RENAME COLUMN name TO sname;
+
+                4>drop :
+                        ALTER TABLE demo
+                        DROP COLUMN column_name;
+        drop :
+                drop table demo;
+drop ->
+        it is a DDL command
+        > it is used to delete table from database.
+        > deleted table will go in recyclebin we can restore table from recyclebin
+        > purge table table_name ; command we used to delete file from recyclebin.
+
+delete ->
+        > it is a DML command.
+        > used to delete partucular record .
+        > delete is temporary for making it permannet we should use commit.
+        > delete is slower then truncate
+truncate->
+        it is a DDL command
+        > truncate is use to delete all data from table we can't del particular data 
+
+
+******************************************************
+
+DML (DATA MANIPULATION LANGUAGE :
+        1>insert :
+                 1> INSERT INTO table_Name
+                        VALUES(---,---,---);
+                2> INSERT INTO table_Name(sid,sname) 
+                        VALUES(--,---,---);
+        2> UPDATE :
+                update table_name set colum_name=value 1,....set colum_name = value n ....
+                where condition;
+        3> DELETE :
+                delete from table_Name where ..condition;
+
+        1>insert
+                1> INSERT INTO demo
+                        VALUES('1cr21','arjun');
+                2> INSERT INTO table_Name(usn) 
+                        VALUES(345);         
+        2> UPDATE :
+                update demo set usn=956 where
+                usn=345;
+        3> DELETE :
+                delete from demo where usn=345;
+               
+***************************************************************
+DQL (DATA QUERY LANGUAGE ) :
+        selecttion --> fetching data only column colum_name
+        projection--> fetching data row or colum_name
+        join--> fetching data using  from another table
+        select :
+DCL (DATA CONTROL LANGUAGE )        
+
+Operators :
+1> Arithmatic Operators
+2> relational Operators
+3> ASSIGNMENT Operators
+4> lOGICAL Operators
+5> special Operators
+
+1> Arithmatic Operators
+2> relational Operators
+3> ASSIGNMENT Operators
+4> lOGICAL Operators-->
+        AND,OR,NOT
+5> special Operators-->
+        positive Operators    -ve Operators
+        in,                   not in
+        between,              not between
+        is null ,             is not null
+        like ,                not like
+************************
+ORDER BY CLAUSE  :
+        IT IS USED TO SORT THE DATA ASCENDING OR DESCENDING ORDER
+Syantax:
+        select colum/...
+        from table_Name
+        where filter...
+        order BY colum_name asc/desc.
+select sal
+        from emp
+        order by sal; desc;
+
+concatenation :
+select 'hi good morning '|| ename ||' your salary '|| salfrom emp;
+select * from emp where mgr=7839 or mgr=7566;
+select ename from emp where hiredate>'01-apr-81';
+select ename from emp where job='CLERK' AND (deptno=20 OR deptno=10 OR deptno=30);
+ASSIGNMENT
+SELECT * FROM EMP;
+SELECT DISTINCT job FROM EMP;
+SELECT ename from emp order by sal desc;
+select * from emp order by deptno asc,job desc;
+SELECT DISTINCT job FROM EMP order by desc;
+
+SELECT empno, hiredate, EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM hiredate) AS experience
+FROM emp;
+
+select * from emp where comm is null and deptno=30;
+select * from emp where comm is not null and mgr in(7839,7566);
+select ename from emp where job in ('CLERK','ANALYST') AND COMM in not null ;
+select ename from emp where length(ename)=5;
+select ename from emp where length(ename)=5 and ename like '%S'
+select sal from emp where length(sal)=4;
+
+*********************************************
+Group claause
+
+
+
+
+select sal*12,comm from emp;
+select (sal-(sal*30/100))from emp;
+
+select ename,sal*6 "h y s" from emp;
+select ename,deptno,sal+100 "s hike" from emp;
+select ename,sal*12+2000 annual_sal from emp;
+select ename,job,((sal*12)*50/100) from emp;
+select emp.*,sal*6 "h salary" from emp;    
+
+select * from emp where sal>1500;
+select ename from emp where job='PRESIDENT';
+select ename,sal*10/100 from emp where sal<2000;
+select empno,ename from emp where deptno=10;
+select * from emp where hiredate<'01-JAN-1982';
+
+
+select sal 
+        from (select sal 
+                from ( select distinct sal from emp 
+                                ORDER BY SAL DESC
+                      )
+                        where rownum <=3
+                        ORDER by sal 
+                )
+        where rownum=1;
+******************************************
+grant
+revoke
+creat user new_user identified by password;
+drop user user_name
+alter user user_name account unlock
+alter user user_name identified by password
+
+
+select sal from(select sal from(
+                        ( select distinct sal from emp order by sal desc
+                ) where rownum <=3
+                order by sal)
+               where rownum=1;

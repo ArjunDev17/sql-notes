@@ -1,0 +1,101 @@
+
+cartesian /cross join -->
+        syantax:
+                ANSI syantax
+                        :select * from tab 1 cross join tab 2,.....tab n;
+
+                Oracle syantax :
+                        :select * from tab 1,tab 2 ,.....tab n;
+
+******************************************************************************
+inner join /  Equi join :
+        syantax:
+                ANSI Syntax:
+                        select */colum_name/....
+                        from tab 1 inner join tab 2,.....n;     
+                        ON <join_condition>
+                Oracle Syntax:
+                        select */colum_name/
+
+
+******************************************************************************                
+
+
+
+
+
+WAQTD SMITH department name
+
+select DNAME from dept where deptno=(select deptno from emp where ENAME='SMITH');
+
+************************************************
+
+                        Joins :
+
+                1> Physical Joins
+                        it implementing by Foreign key and Primary key
+
+                2> Logical Joins
+                        1> Combined data
+                        2>combination of data
+
+                1> Combined data 
+                                -> set
+                                        union
+                                        union all
+                                        intersec
+                                        ----
+                2> combination of data-
+                        1> cross Joins
+                        2> Equi Joins
+                        3> Inner Joins
+                        4> Self JOINS
+                        5> Outer
+                                1> left
+                                2> right
+                                3> full
+********************************************************************************
+
+select e1.ename,e1.sal*12 salary d1.DNAME from emp e1 cross Joins
+
+WAQTD ename half of the salary
+********************************************************************************
+
+Joins
+        the process of retriving data form multiple tables is known as JOINS 
+
+        types---
+
+cross JOINS -->
+        1> it is also called as caresian JOIN 
+        2> which is implemented from the set theory of mathmetics
+        3> in cross JOINS each record of table one will be merge on compare
+         with all the records of table 2
+        4> cross Join express the output from both table even without condition between both
+                 the table .
+
+                syntax 1:
+                        select t1.-------
+                        from T1 cross Join T2
+                        where----------;
+
+                Syntax 2:
+                        select t1.-------
+                        from T1 , T2
+                        where----------;
+***************************
+WAQT fetch employee name , annual salary and department name of the employees
+
+        select emp.ename,emp.sal*12,dept.DNAME
+                from emp cross Join dept;
+WAQTD the employee name half term of the salary along with working location of 
+        employee SMITH .
+
+        select emp.ename,emp.sal*6,dept.loc from emp cross join dept
+        where emp.ename='SMITH';
+
+WAQTD employee name joining date along with department information of all the employee
+
+        select emp.ename, emp.hiredate ,dept.*
+                from emp cross join dept;
+

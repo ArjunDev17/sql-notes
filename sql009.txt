@@ -1,0 +1,106 @@
+date  :
+        1> sysdate ();
+        2> current_date();
+        3> sessiontimezone();
+        4> months_between();
+
+        1> select sysdate from dual;
+        2> select current_date from dual;
+        3> select sessiontimezone
+                from dual;
+        4> select months_between('19-may-23','01-jan-23')
+        5> select months_between(sysdate,'01-jan-23) from dual;
+
+ WAQTD employee name and number of year of experience of all the employee ;--------------###############*
+
+        select ename,months_between(sysdate,hiredate) from emp;
+        select ename,months_between(sysdate,hiredate)/12 from emp;
+
+***********************************************************************************************
+conversion()
+        1> select hiredate,to_char(hiredate,'yyyy')
+                from emp;
+        2>  select hiredate,to_char(hiredate,'day')
+                from emp;   
+        3> select hiredate,to_char(hiredate,'mm')
+                from emp;  
+
+        output->                
+                HIREDATE  TO
+                --------- --
+                13-AUG-20 08
+                17-DEC-80 12
+
+        4> select hiredate,to_char(hiredate,'month')
+                from emp; 
+        5> select hiredate,to_char(hiredate,'day-mm-yy')
+                from emp;  
+
+                output--> 
+                        HIREDATE  TO_CHAR(HIREDAT
+                        --------- ---------------
+                        13-AUG-20 thursday -08-20
+                        17-DEC-80 wednesday-12-80
+                        22-FEB-81 sunday   -02-81
+        6> select hiredate,to_char(hiredate,'day-month-year')
+                from emp;
+
+                        HIREDATE  TO_CHAR(HIREDATE,'DAY-MONTH-YEAR')
+                        --------- ----------------------------------------
+                        13-AUG-20 thursday -august   -twenty twenty
+                        17-DEC-80 wednesday-december -nineteen eighty
+                        22-FEB-81 sunday   -february -nineteen eighty-one
+                        28-SEP-81 monday   -september-nineteen eighty-one
+
+        7> select hiredate,to_char(hiredate,'day-month-year')
+                from emp;
+        8> select hiredate,to_char(hiredate,'hh-mi-ss')
+                from emp;
+                output->
+                        HIREDATE  TO_CHAR(
+                        --------- --------
+                        13-AUG-20 12-00-00
+                        17-DEC-80 12-00-00
+                        22-FEB-81 12-00-00
+
+        9> select hiredate,to_char(hiredate,'hh-mi-ss') Ram
+                        from emp;
+
+                        HIREDATE  TO_CHAR(
+                        --------- --------
+                        13-AUG-20 12-00-00
+                        17-DEC-80 12-00-00
+                        22-FEB-81 12-00-00
+
+***************************************************
+
+to_date()---
+        1> select to_date('01/01/23','dd/mm/yy') Date;
+        2> select to_date('01/01/23','mm/yy/dd')Dateis  from dual;
+        3> select to_date('32/02/23','mm/dd/yy') from dual;
+        output-->
+                select to_date('32/02/23','mm/dd/yy') from dual
+                                *
+                        ERROR at line 1:
+                        ORA-01843: not a valid month
+
+
+*****************************************************************************
+multi row function :--
+
+WAQTD to fetch maximum salary ;
+select max(sal) from emp;
+
+select ename where max(sal) from emp;
+                select ename from emp where max(sal);
+                
+                 select ename from emp where sal>0;
+
+
+               1>   select ename,max(sal)
+                        from emp;
+
+        WAQTD to display maximum salary amount this cleak
+
+        SELECT  max(sal) from emp where joB='CLEARK';
+        

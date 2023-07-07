@@ -1,0 +1,39 @@
+select mod(30,3) from dual;
+select mod(43,4) from dual;
+select ename,sal,mod(sal,2) from EMP;
+select ename,sal from emp mod(sal,2)=0;
+select ename,sal from emp mod(sal,2)=1;
+select ename,sal from emp mod(empno,2)=0;
+
+select mod(45,2) from emp;
+
+*********************************************************************************
+abs() function :
+                select abs(12) from dual;
+                select abs(12.3212412)from dual;
+                select abs(-12) from dual;
+                
+*********************************************************************************
+sqrt() function 
+select sal,sqrt(sal) from emp;
+        select sqrt(59) from dual;
+        select sqrt(49.132) from dual;
+        select sqrt(-49) from dual;
+                        negative value we can't enter it will give ERROR---
+                        //argument '-49' is out of range                        
+*********************************************************************************
+select power(4,2) from dual;
+select power(34,6,2) from dual;
+select power(4,-2) from dual;
+*********************************************************************************
+select ceil(3.9) from dual;
+select floor(4.8) from dual;
+select floor(4.2342344551) from dual;
+select floor (-5.2)from dual;
+
+select round(-4,4) from dual;
+
+********************************************************************************
+round is a combination of floor and ceil
+ceil--> always give
+

@@ -1,0 +1,90 @@
+Query ---->
+****************
+set pagesize 200 linesize 200 or we can write // set pages 200 lines 200;
+select * from emp where sal=3000;
+create index salary on emp(sal);
+drop index salary
+********************************************************************
+index -->
+
+1> index is used for quick search
+2> using index we can reduce CPU cost (CPU Load)
+3> we create a index when putting a frequently condition on a same colum
+
+4> there are two types of index
+        1> cluster index
+        2> Non-cluster index
+
+1> cluster index-->
+        1> in cluster index we can create only one index in a table.
+        2> cluster index is faster then Non-cluster index .
+        3> in the cluster index we are storing the data's in the arrange order .
+
+2> Non-cluster index-->
+        1> in a Non-cluster index we can create multiple index.
+        2> Non cluster index slower then the cluster index.
+        3> in a Non cluster index we are not storing the data's in arranged order so that
+           it is taking more space.
+
+Syntax :-->
+        set autotrace on explain;
+        set autotrace off explain;
+        create index index_Name on table_Name(column Name);
+        Drop index index_Name;
+---------------------------------------------------
+        Order of Execution :
+        set pages 200 lines 200;
+        select * from emp where sal=3000;
+         set autotrace on explain;
+         select * from emp where sal=3000;
+         create index salary on emp(sal);
+         select * from emp;
+         drop index salary;
+          select * from emp where sal=3000;
+          set autotrace off explain;  //  set autotrace off ; it also will worked
+          select * from emp;
+
+********************************************************************************
+DDL: data defination language }-->
+       1> create
+       2> alter
+               > add
+               > rename
+               > drop
+               > modify 
+       3> drop
+       4> truncate
+--------------------------
+1> Primary key
+2> Foreign key
+3> unique key
+4> Not null
+5> check
+6> default
+insert into table(---,---,---) values(---,---,---);
+
+insert into table table_Name values(----.----,)
+---------------------------------------------------------->>>>>>>>>>>>>>>>>>
+2> alter
+               > add
+               > rename
+               > drop
+               > modify ->
+                  syantax
+                        :
+                        ALTER TABLE table_Name
+                        MODIFY COLUMN col_name data_type constraints;
+                        ;
+                  Example :      
+                       ALTER TABLE customer
+                       MODIFY COLUMN cname VARCHAR(20) NOT NULL;
+
+
+                  alter table customer
+                  add cname varchar(10) not null;
+
+                desc customer;
+                Name                      Null?         Type
+                -------------------------------------------------------
+                CID                                     NUMBER(10)
+                CNAME                    NOT NULL     VARCHAR2(10)

@@ -1,0 +1,83 @@
+DCL :DATA CONTROL LANGUAGE
+
+grant :
+        Syantx:
+                grant privlegs on object to user ;
+revoke:
+        Syantx :
+                revoke privlegs on object from user ;
+
+***************************************************
+select * from all_users;
+show user;
+select * from tab;
+conn hr
+show user;
+select * from tab;
+select * from emp;
+// table or view does't exist
+
+select * from scott.emp;----
+update scott.emp set sal=1232;
+
+grant select,update on jobs to scott ;
+
+grant select, update on jobs to hr;
+
+conn hr;
+select * from scott.emp;
+revoke select, update on jobs from scott ;
+con scott
+select * from hr.jobs;
+------------------------------
+conn scott
+select * from tab;
+select * from hr.jobs;
+update hr.jobs set min_salary=5000;
+delete from hr.jobs;
+
+******************************************************************
+hr have't emp table i want to giv HR to acces
+grant select on emp to hr;
+
+update scott.emp
+set sal=3000;
+
+grant select,update on jobs to scott ;
+
+**************************************************************************
+1> create own user Syantx:
+
+        create user user_name identified by password;
+        
+2> grant connect to new_user;
+3> grant all privlegs to new_user;
+4> drop user user_name cascade;
+show user;
+create user abc identified by a123;
+conn system;
+show user ;
+create user abc identified by a123;
+conn abc;
+conn system ;
+grant connect to abc;
+conn abc;
+create table a1(
+        aid number(10));
+
+conn system ;
+
+grant all privilegs to abc;
+conn abc;
+create table a1(
+        aid number(10));
+
+drop user abc cascade ;
+drop user abc cascade;
+
+
+**********************************
+if you got locked account :
+1> alter user user_name account unlock;
+2> alter user user_name identified by password;
+

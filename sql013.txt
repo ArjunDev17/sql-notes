@@ -1,0 +1,124 @@
+rownum :
+        1> rownum is an virtual coloumn.
+        2>it start with
+
+
+distinct       ********
+
+****************************************
+1> select distinct sal
+        from emp
+        ORDER by sal DESC;
+
+        output :
+                      
+2> select sal from 
+                (select distinct sal from emp ORDER BY DESC)
+                where rownum <=3;
+
+3> select SAL 
+        from (select sal from emp ORDER by DESC) where rownum<=3;
+        ORDER by sal;
+
+4> select sal(
+        select sal 
+                from (select sal from emp ORDER by sal DESC) where rownum <=3 ORDER by sal
+        )where rownum=1;
+        
+
+****************************************
+
+elect sal  (3)
+        from (select sal  (2)
+                from ( select distinct sal
+                        from emp                     (1)
+                                ORDER BY SAL DESC )
+                                where rownum <=3     (2)
+                                ORDER by sal ASC )     // ASC no need to write it took by DEFAULT
+                                where rownum=1;      (3)
+
+*************************************************************
+
+WAQTD THIRD Minimum salary FROM employee TABLE .
+
+select sal  as "Third Minimum salary"
+        from (select sal 
+                from ( select distinct sal from emp 
+                                ORDER BY SAL DESC
+                      )
+                        where rownum <=3
+                        ORDER by sal 
+                )
+        where rownum=1;
+
+select sal from  emp where sal=(select distinct sal from emp order by desc) where rownum<=3
+        order by sal )
+        where rownum=1;
+
+
+
+************************************************************
+from select sal from(select distinct sal from emp order by asc ) where rownum<=3 oder by sal,
+WAQT fetch 4th highest sal ;
+
+select * from emp where sal =(
+        select sal from (
+                select sal from (
+                        select distinct sal from emp ORDER by sal DESC
+                                where rownum <=5
+                                ORDER by sal
+                        )
+                where rownum=1
+                )
+        ));
+
+
+       (select distinct sal from emp
+        ORDER by DESC)
+        where rownum<=4
+        ORDER BY sal
+
+
+WAQTD all the details of the emp who get more then avg sal
+
+select avg(sal) from emp;
+select * from emp where sal>(select avg(sal) from emp);
+
+WAQTD all the details of the employee who get sal more then scott
+
+      inner querry :--?  select sal from emp where ename='SCOTT';
+     
+     whole-->   select * from emp where sal>(
+        select sal from emp where ename='SCOTT');
+
+**********************************************************************
+*********WAQTD whose avg SAL more then the DEPTNO 20;
+
+select * from emp where (select avg(sal)>= (select sal from DEPTNO=20));
+
+   I->     select avg(sal) from emp where DEPTNO=20;
+    f-->   select * from emp where sal>(select avg(sal) from emp where DEPTNO=20) and DEPTNO=20;
+
+select* from emp
+        where DEPTNO=20 and sal>(select avg(sal)
+        from emp
+        where DEPTNO=20);
+
+*************************************************
+WAQTD name of the SALESMAN who earn the sal more then the highest sal of CLEARK...?
+
+select MAX(sal) from emp where JOB='CLEARK';
+SELECT DNAME FROM DEPT WHERE DNAME
+
+SELECT ename FROM
+        EMP 
+        WHERE JOB='SALESMAN' AND SAL>(SELECT MAX(SAL) FROM EMP WHERE JOB='CLEARK');
+
+*********WAQTD ALL THE DETAILS OF THE SCOTT MANAGER
+        SELECT * FROM EMP WHERE enam='SCOTT' AND MGR IN(SELECT MGR FROM EMP);
+
+SELECT * FROM EMP
+        WHERE EMPNO=(SELECT MGR
+                FROM EMP
+                        WHERE ename='SCOTT');
+                        

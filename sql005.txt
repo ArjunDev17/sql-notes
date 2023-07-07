@@ -1,0 +1,99 @@
+desc book;
+alter table book modify bprice varchar(10) not null;
+
+********************************************************
+
+>> 1 ]---> Drop
+        it is used for delete the table from database
+        Syntax :
+                drop table table_Name;
+     >>  after drop data will go inside Recycle bin ;
+
+>> 2}--> 
+        we can check Recycle bin
+                Syntax :
+                        show recyclebin;
+**********************************************************                        
+>> 3 } -->flashback     
+        it is used to restore table from recyclebin
+        Syntax:
+                 flashback table table_Name to  before drop;
+                 
+**********************************************************          
+>> 4 }
+        purge table table_Name     ::---->  
+           it is used to delete the table from recyclebin
+        
+**********************************************************
+>> 5 }
+        purge recyclebin;       
+                -> it is used to delete all the tables from recyclebin
+        it is used to check the recyclebin
+        to restore data from recyclebin we used
+
+*************_*_____________________________*****************************
+
+drop table COSTUMER;
+drop table DEPT;
+drop table ORDER1 ;
+drop table EMP ;
+show recyclebin;
+select * from tab;
+flashback table order1 to before drop;
+purge table DEPT;
+
+***********************************************************************
+ truncate --->
+        it is used to delete the data permanently
+                        Syntax:
+                                truncate table table_Name;
+***************************************************************************
+rename :
+        it is used to renaming the table .
+                Syntax:
+                        rename old_table_Name to new_Table_Name;
+
+
+************************************************************************************
+delete :
+        1> it is an DML command
+        2> delete is used for deleting the specific record
+        3> delete is temporary show that we can undo the delete operation 
+        4> delete is slower the truncate .
+        5> using delete we can delete particular record.
+        6> delete is temporary to make it permanent we will use TCL command commit ;
+        
+************************************************************************************
+truncate-
+        1> it is a DDL command
+        2> truncate is used for to delete all the records for permanently.
+        3> in truncate we can't used where condition show that we can't delete particular
+                record.
+        4> truncate is faster then the delete
+
+************************************************************************************
+drop    :
+        1> drop is a DDL command,
+        2> using drop we can delete all the table from database.
+        3> deleted table will be stored in recyclebin.
+        4> to restore table from recyclebin  we will use flashback.
+        5> to delete table from recyclebin we will used purge.
+        
+************************************************************************************
+
+
+Important question :
+        Constraints--- 
+        primary key Foreign key
+        drop delete truncate
+        how to create table  ,
+        how to connect one to another..
+        ER Diagram--Entity relation
+        
+************************************************************************************
+schema
+student table:
+        create table student(sind number(10),sanme varchar(20),marks)
+
+
+

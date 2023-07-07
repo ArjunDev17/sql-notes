@@ -1,0 +1,68 @@
+crete COurse table:
+
+create table COurse1(cid number(3) primary key,
+                       cname varchar(20) not null,
+                       tname varchar(20)
+                );
+insert into COurse1 values(1,'sql','gShetty');
+insert into COurse1 values(2,'JAVA','Dhruva');
+
+create table worker(wid number(3) primary key,
+                        wname varchar(10),
+                        age number(3) not null,
+                        gender varchar(10) not null,
+                        country varchar(10)
+                );
+
+create table worker(
+        wid number(10) primary key,
+        wname varchar(20) not null,
+        age number(2) check(age>18),
+        gender varchar(10) check(gender in('M','F','T')),
+        country varchar(20) default('India')
+);
+insert into worker values(01,'Hitesh',20,'M','USA');
+insert into worker values(02,'Aadi',22,'M',null);
+insert into worker values(03,'Annat',13,'M','usa');
+-->check constraint (SCOTT.SYS_C006716) violated
+
+insert into worker(wid,wname,age,gender) values(03,'arijit',34,'M');
+insert into worker()
+
+select * from worker;
+
+********************************************************************
+create table costumer(
+        cid number(10) primary key,
+        cname varchar(20) not null,
+        age number(3) check(age>=20),
+        gender varchar(10) check(gender in('M','F')),
+        loc varchar(10) default('BLR')
+);
+
+************************************************************
+create table book(
+        bid number(10) unique,
+        bname varchar(10) not null,
+        bprice number(4,2)
+);
+
+create table bok1(
+        bid number(10) unique,
+        bprice number(4,2)
+);
+insert into book values(01,'sql',300);
+----------------------------------------
+create table book2(
+        bid number(10) unique not null --we can use more then one constraints but never use (,) comma
+        bname varchar(10) not null,
+        bprice number(4)
+)
+********************************************************
+
+create table student(
+        sid number(5) primary key,
+        sanme varchar(20) not null,
+        marks number(4,2),
+        cid number(10) refrences COurse1(cid)
+);

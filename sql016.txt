@@ -1,0 +1,32 @@
+WAQT fetch unique designation from emp table and print it's length
+
+select distinct(length(
+
+WAQT fetch
+
+        select tolower(ename) from emp;
+
+WAQTD development form the input developer .?
+
+        select replace('developer','er','ment')from dual;
+
+WAQT fetch dept of last record
+
+        select count(*) from emp;
+        select * from emp where rownum=( select count(*) from emp);
+
+        select * from emp where empno in 
+                (select max(empno) from emp);
+
+WAQTD the employee details who join in wednesday .
+        select * from emp where to_char(hiredate,'DY')='WED'
+
+        SELECT TO_CHAR(DATE '2023-05-26','DAY') AS DAY FROM dual;
+
+1> FIRst three charecter from emp ename in lowecase and rest string should captal
+
+        select LOWER(substr(ename,1,3))||upper(substr(ename,4)) from emp;
+        
+select LOWER(substr(ename,LENGTH(ename)/2)) FROM EMP;
+
+select ename from emp 

@@ -1,0 +1,46 @@
+Q1. Display the current date?
+Q2. Display the details of all employees?
+Q3. Display the department information from Dept table?
+Q4. Display the name, job and department number for all employees?
+Q5. Display the name and salary for all employees?
+Q6. Display the number of employees and total salary of all the employees in Emp table? *****
+Q7. Display the employee name and annual salary of all employees?
+Q8. Display the name of all employees who are working in department 10?
+Q9. Display name, designation, salary, commission and department number of all managers 
+   working in department 20?
+Q10. Display the names of employees who are working as clerks and earning 3000 or more?
+Q11. Display the employee number & name who are earning commission?
+Q12. Display the employee number & name who do not earn commission?
+Q13. Display the names of employees who are working as clerks or salesman or analyst and 
+        earning more than 3000?
+Q14. Display the names of employees who joined the company before 30th June 1981 or after 31st December 1983?
+Q15. Display the names of employees who joined the company on or before 30th June 1981 or on 
+        or after 31st December 1983?
+Q16. Display the names of employees who joined the company between the year 1980 and 1985?
+Q17. Display the names of employees working in department 10 or 20 or 40 or employees working as 
+ clerks, salesman or analyst?
+Q18. Display the names of employees whose name starts with "S"?
+Q19. Display the employee number and names whose name ends with "S"?
+Q20. Display the employees whose names have 2nd character as "L"?
+Q21. Display the employees whose names have 2nd character as "A" and 4th character as "E"?
+Q22. Display the employees name and job whose name 3rd last character is "I"?
+Q23. Display the employees whose name is exactly five character in length?
+Q24. Display the name and job of employees who are not managers?
+Q25. Display the name and job of employees who are not working as salesman or clerk or analyst?
+Q26. Display the name and job of employees of department 20 who are not salesman or clerk?
+Q27. Display the total number of employees working in the company?
+Q28. Display the total salary being paid to all employees?
+Q29. Display the maximum salary from EMP table?
+Q30. Display the minimum salary and average salary from EMP table?
+Q31. Display the maximum and minimum paid clerk?
+Q32. Display the maximum salary being paid to a salesman in any department?
+Q33. Display the average salary drawn by all managers?
+Q34. Display the maximum, minimum and average of all managers in department 20?
+Q35: Display the total salary drawn by Analyst working in department number 30?
+Q36: Display name, job, salary and join date of the employees in ascending order of their salary?
+Q37: Display employee number, name, department number and salary. Sort the output based on department 
+        number and within each department sort by descending order of salary and within salary by name?
+Q38: Display the name of the employee along with their annual salary. The name of the employee earning
+         highest annual salary should appear first?
+Q39: Display the name, designation, department number and annual salary in "$" format for all employees
+         in descending order of their annual salary?

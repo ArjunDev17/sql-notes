@@ -1,0 +1,93 @@
+Constraints --
+        0> constraints are the rules provided to a column to validate the data during insertion.
+        there are 6 types of Constraints .
+
+                1> Primary key
+                2> Foreign key
+                3> unique key
+                4> Not null
+                5> check
+                6> default
+
+default :-
+
+        1> it is used to set the default value for the column.
+        2> in a table one or more default can be present.
+
+check--
+
+        1> it is used  to provide the condition for a column.
+        2> in a table one or more check can be present.
+     ** 3> IT provide ADDitional validation for column.
+        
+        mobile_Num number(10) check(length(mobile_Num)=10);
+        check (age>18);
+
+unique--
+
+        0> the attribute which suppose to different from entity to another entity .. in this
+                situation we have to go with unique constraint.
+        1> unique will accept only unique values.
+        2> it will accept null values.
+        3  it will not accept duplicate value.
+        4> in a table one or more unique can be present.
+
+        empno,phone_number,USN
+
+Not-null--
+        1> it will accept duplicate value 
+        2> it will accept not-null values
+        3> it will never accept null values
+        4> in a table one or more not null can be exist.
+
+Primary key--->
+
+        0> for each table Primary key is recommended which help us to access data from a table
+                without any confusion .
+        1> it is a colum whose data determine the particular record uniquely.
+        2> it is a combination of unique and NOT-null.
+        3> it will not accept null value and it will not accept duplicate values.
+        4> in a table only one colum be declare as Primary key.
+
+Foreign key:
+        0> this constraints is used to build the connection between two tables
+        
+        1> it is a colum whose data refer the data of another table uniquely.
+        2> it will accept duplicate values and it will accept null values.
+        3> we can't insert value which is not present in refer table colum.
+        4> in a table one or more Foreign key can be present.
+
+********************************************
+creating a table-->
+Syntax
+        create table table_Name(---,----,---,);
+create table product(pid number(10),pname varchar(20),pprice number(7,2));
+
+inserting the value--->
+insert into product values(1,'pen',50);
+-------------------------------------
+create table order1(oid number(3) Primary key,
+                oname varchar(20) not null,
+                pprice number(10,2)
+                );
+
+insert into order1 values(11,'banana',20);
+--> if we again insert same values------------>>
+insert into order1 values(11,'banana',20);
+        ERROR at line 1:
+        ORA-00001: unique constraint (SCOTT.SYS_C006707) violated
+insert into order1 values(11,'apple',200);
+        same ERROR
+insert into order1 values('apple',200);
+        //not enough values
+insert into order1 values(null,'apple',200);
+       can't insert NULL into ("SCOTT"."ORDER1"."OID")
+insert into order1 values(12,'apple',200);
+insert into order1 values(13,'mango',null);
+
+
+------->>  insert into order1(oid,oname)values(15,'tea');
+insert into order1 values(14,'coffee',59);
+
+1> what is RDBMS ?
+2> constraint very Important.

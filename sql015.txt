@@ -1,0 +1,10 @@
+WAQTD COMMITION OF employee WHO IS working IN SALES department AND accountans department
+
+ select ENAME,COMM from emp where deptno =
+        (select deptno FROM DEPT where DNAME in('SALES','ACCOUNTS'));
+
+
+select ENAME,COMM from emp where deptno =
+        (select deptno FROM DEPT where DNAME in('SALES','ACCOUNTS')and rownum=3);
+
+

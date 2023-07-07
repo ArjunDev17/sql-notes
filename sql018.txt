@@ -1,0 +1,87 @@
+inner join :
+        1> it is a combination of equi join
+        2> relation is mendatory for inner join
+        3> where clause is optional for inner join
+
+        syntax :
+                select tab.col,tab.col,.......
+                from table 1 inner join  table 2
+                on table 1.comm(col)=table 2.comm(col)
+
+********************************************************************
+select s.cid,s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.cid=c.cid;
+
+select s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.cid!=c.cid;
+
+select s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.cid>c.cid;
+
+select s.cid,s.sname, c.cid,c.cname
+from stud s inner join cour c
+on s.sid>=c.cid ;
+
+select s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.cid<c.cid;
+
+select s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.cid<=c.cid ;
+
+select s.cid,s.sname,c.cid,c.cname
+from stud s inner join cour c
+on s.sid != c.cid ;
+
+syntax wrong for inner join :-->
+        it will give output but not correct  syntax
+
+********************************************************************
+WAQTD all details of the student imtiaz and how many course he let to do;
+
+
+        select s.*
+
+        select c.cname 
+        from stud s,cour c
+        where s.sname='imtiaz';
+
+WAQTD employee name,job and where working location who are all working deparment 20,10
+        select e.ename , e.job,d.loc
+        from emp e inner join dept d
+        on e.deptno<30;
+
+        select e.ename , e.job,d.loc
+        from emp e inner join dept d
+        on e.deptno=d.deptno
+        where e.deptno in (10,20);
+
+WAQTD  all the details of the emp and there deparment name who are all working as a salesman
+ and manager in DALLAS
+
+ select e.*,d.dname from
+        emp e inner join dept d
+        on e.deptno=d.deptno
+        where job IN('SALESMAN','MANAGER') AND d.loc='DALLAS';
+
+        
+
+*************************************************************************
+
+create table cour(cid number(3) primary key,cname varchar(10),trainer varchar(10));
+        insert into cour values(1,'python','santosh');
+        insert into cour values(2,'java','joyson');
+        insert into cour values(3,'sql','girishma');
+        insert into cour values(4,'wetech','kishore');
+
+create table Stud (sid number(5) primary key,
+                sname varchar(10),cid number(3) references cour(cid));
+
+        insert into stud values(101,'arnab',1);
+         insert into stud values(102,'imtiaz',1);
+          insert into stud values(103,'soham',3);
+           insert into stud values(104,'anamika',2);

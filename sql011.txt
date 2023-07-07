@@ -1,0 +1,90 @@
+WAQTD minimum sal
+
+        select sal from emp where sal <any(sal);
+        select min(sal) from emp;
+
+WAQTD minimum salary among the salesman and manager
+
+        select sal from emp where sal < in( );
+        select min(sal) from emp where job in('SALESMAN','MANAGER');
+
+WAQTD minimum salary among the department number 20 .
+
+        select MIN(SAL) from emp where DEPTNO=20;
+
+WAQTD average salary
+
+        select avg(sal) from emp;
+        select sum(sal)/
+
+WAQTD average salary among the department 10 and 30.
+
+        select avg(sal) from emp where DEPTNO in(10,30);
+
+        select deptno,avg(sal) from emp where DEPTNO in(10,30);
+        // we can't  not a single-group group function
+
+WAQTD sum of the salary;
+
+        select sum(sal) from emp;
+
+***********************************************************
+select count (sal) from emp;
+*****************************************************
+
+
+1> query inside query
+2> we use sub query when based on one query result we are writing another 
+        query .
+
+        syntax :
+                select-------
+                from table_Name
+                where condition(sub query)
+        Syntax :
+                SELECT------
+                FROM (sub-query)
+                where condition;
+
+
+WAQTD all the details of the employee who get maximum salary;
+
+        select * from emp where sal=(select max(sal) from emp);
+
+WAQTD ALL THE details OF THE employee WHO GET minimum SAL;
+
+
+WAQTD employee who is CLERK and his salary
+        select * from emp where sal=(select MIN(sal) from emp);
+
+ WAQTD all the details of the employee who are working in sales department;
+
+         SELECT * FROM EMP WHERE DEPTNO=
+                (SELECT DEPTNO FROM DEPT WHERE DNAME='SALES');
+
+WAQTD SMITH JOB and department
+
+        SELECT JOB FROM EMP WHERE ename='SMITH';
+        CLERK--?
+        SELECT DNAME FROM DEPT WHERE JOB=(SELECT JOB FROM EMP WHERE ename='SMITH' )
+
+WAQTD ALL THE details OF THE employee WHO JOIN COMPANY first;
+
+        SELECT * FROM EMP WHERE HIREDATE>ANY(( SELECT hiredate FROM EMP));
+        SELECT * FROM EMP WHERE HIREDATE<ANY(( SELECT hiredate FROM EMP));
+
+        SELECT * FROM EMP WHERE HIREDATE=(SELECT MIN(HIREDATE) FROM EMP);
+
+                SELECT hiredate FROM EMP
+
+        SELECT* FROM EMP WHERE JOB=(
+                        select ename from emp where job='SALES');     
+        
+          
+
+       
+        select ename,SAL from emp where job='CLERK';
+        select  sal from emp where ename='CLERK';
+       
+         select  sal from emp where 
+                ename=(select ename from emp where job='CLERK' )

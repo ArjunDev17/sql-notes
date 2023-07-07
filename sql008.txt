@@ -1,0 +1,68 @@
+length() function
+        -> select length('hello') from dual;
+        -> select length('  hello  ')from dual ;
+        if you want to ignore (spaces) then use this query
+                -> SELECT LENGTH(REPLACE('  hello  ', ' ', '')) FROM dual;
+
+        select empno,length(empno) from emp;
+
+**********************************************************
+upper() function-- and lower function --:
+
+        -> select upper('hello') from dual;
+        -> select upper('heLLO') from dual;
+        -> select ename, upper(e_name) from emp;
+        -> select upper('heLLO  L') as capital from dual;
+        -> select upper('heLLO  L') capital from dual;
+        -> select lower(e_name) from emp;
+
+**********************************************************
+trim() function
+        1> it wil work on only first and last character .
+        2> it can remove spaces only from first and last places.
+        3> we can remove particular character from starting and ending point.
+                select trim('o' from 'hello') from dual;
+        4> if we give ' hello'
+                it will consider first character is space so 
+        5> it is a case sensitive sot h and H is totally different.
+
+        as it is a function we can use different types 
+
+        select trim(length(' heLLO   '))from dual;
+        select length(trim('  hello  '))from dual;
+
+        select trim('     sql  ')from dual;
+        
+substr()-->
+                syntax-->
+                        substr(source,position);
+                        substr(source,position,length)
+                       
+             g o o d   m o r n i  n  g  
+             1 2 3 4 5 6 7 8 9 10 11 12
+        select substr('good morning',6) from dual;
+        select substr('good morning',-4) from dual;
+        select substr('good morning',5) from dual;
+        select substr('good morning'1,3) from dual;
+        select substr('good morning'-5,2) from dual;
+        select e_name,substr(e_name,-3) from dual;
+
+*********************************************************************************
+REPLACE-->
+        syntax 
+                1> REPLACE(source,old_char,new_char);
+                2> REPLACE(source,delete_char)
+        select REPLACE("ram","ram")from dual;
+
+
+        select REPLACE('java','a','z')from dual;
+        select REPLACE('java','va','z')from dual;
+        select ename,REPLACE(ename,'A','W') from emp;
+
+        2> REPLACE(source,delete_char)------------**********
+                select REPLACE('good morning','o') from dual;
+                
+
+waqtd 
+
+        

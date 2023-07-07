@@ -1,0 +1,69 @@
+
+SELF JOIN :
+        joining itself means same table diffrent column which having relationship between name
+        is known as SELF JOIN
+        2> in case of SELF JOIN aliasing is mendatory {naming ambigucy}
+                (because we are featching data from
+                same table if we are not aliasing then it will make confusion)
+        3> where clause is mendatory
+        Syntax:
+                select table.col,table.col,......
+                from table t1,table t2
+                where t1
+
+*************************************************************************
+WAQTD all employee manager name
+
+        select e1.ename,e2.ename,e2.mgr,e2.ename
+        from emp e1,emp e2
+        where e1.mgr=e2.empno;
+
+        select e1.ename,e2.ename,e2.mgr,e2.ename
+        from emp e1,e2
+        where e1.mgr=e2.empno;        
+*************************************************************************
+select e1.ename,e2.ename,e2.mgr,e2.ename
+        from emp e1,emp e2
+        where e1.empno=e2.mgr;        
+*************************************************************************
+select e1.ename,' MANAGER is '|| e2.ename
+        from emp e1,emp e2
+        where e1.mgr=e2.empno;     
+
+*************************************************************************
+WAQTD all details of the smith and his manager
+
+ select e1.*,e2.* 
+         from emp e1, emp e2
+         where e1.ename='SMITH' AND e1.MGR=e2.empno;
+        ******************************************************
+        SAME output:
+
+         select * 
+         from emp e1, emp e2
+         where e1.ename='SMITH' AND e1.MGR=e2.empno;
+
+ ****************************************************** ******************************************************
+ LEFT JOIN
+        in case of LEFT join it will fetch common data acording
+        with left side all details
+        assume we have two table
+        table 1                 table 2
+        1          1            1
+        2           2           2
+        3            4          4
+        4                       6
+
+        output-:
+                1
+                2
+                4
+                3
+
+        select s.sname,s.cid,c.cname,c.cid
+        from stud s left join cour c
+        on s.cid=c.cid ;
+
+select c.cname,c.cid,s.sname,s.cid
+from cour c left join stud s
+on c.cid=s.cid ;

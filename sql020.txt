@@ -1,0 +1,69 @@
+Right join :
+        1> in case of Right join it will fetch acording with Right side all data.
+        Syntax:
+                
+        table 1                 table 2
+        1                       1
+        2                       2
+        3                       6
+        4                       5
+
+        output-->
+                1
+                2
+                6
+                5
+
+*********************************************
+select * from stud;
+select * from cour;
+
+select s.cid,c.cid
+        from stud s Right join cour c
+        on s.cid=c.cid;
+*********************************************
+select s.cid,s.sname,c.cid,c.cname
+        from stud s Right join cour c
+        on s.cid=c.cid;
+
+*********************************************
+select e.ename,d.dname 
+        from emp e Right join dept d
+        on e.deptno=d.deptno;
+
+*********************************************
+       3 querries
+       > sub querries
+       > join
+       > normal
+       1> dml
+       2> primary key
+       minimum salary
+       third minimum salary
+
+***************************************************************
+Full Outer JOIN :
+
+          table 1                 table 2
+        1                       1
+        2                       2
+        3                       5
+
+        output-->
+                1
+                2
+                3
+                5
+        in case of full Outer join it will fetch common data acording with both two table .
+
+        syntax:
+
+
+select e.ename,d.dname,e.job
+        from emp e full outer join dept d
+        on e.deptno=d.deptno ;
+
+
+
+        
+

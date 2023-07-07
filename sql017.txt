@@ -1,0 +1,77 @@
+equi join :
+
+select tab col,tab col from table1,table 2
+        where tab 1.comm=tab2.comm;
+
+        1               1
+        2      1        2
+        3      2        3
+        4      3        4
+        5      4        5
+               5
+
+we use equi join to fetch the common data from two diffrent tables
+condition is mendatory for equi join 
+where clause is mendatory for equi join 
+= equal symbol is mendatory for equi join
+
+
+create table Stud(sid number(3 )primary key,
+        sname varchar(10) not null,cid number(3) refrences cour(cid));
+
+create table cour(cid number(3) primary key,cname varchar(10),tname varchar(10));
+
+insert table into cour values (1,'java','dhruva');
+
+select e.ename,e.empno,d.dname,d.empno
+from emp e, dept d
+where e.empno=d.dept;
+
+select d.dname,e.ename,e.job,e.sal,d.dname
+from emp e,dept d
+where e.empno=d.deptno;
+
+select d.dname,e.ename
+from emp e,dept d
+where e.empno=d.deptno;
+
+
+select s.sname,s.sid,s.cid,s.cname,c.cid
+        from cour c,Stud1 s
+        where s.cid=c.cid;
+
+*******************************************************************************
+
+WAQTD or details of the sudent and how many course they have to learn 
+        select s.*,c.cname
+        FROM STUD S,COUR c
+        where s.cid=c.cid ;
+
+*******************************************************************************
+WAQTD every employee name and there working location
+
+select e.ename ,d.loc from emp e,dept d
+where e.deptno=d.deptno;
+
+*******************************************************************************
+WAQTD smith and allen all details acording with there working location
+
+        select e.*, d.loc  from emp e ,dept d
+                where 
+                e.deptno=d.deptno and
+                ename in ('SMITH','ALLEN');
+
+*******************************************************************************
+WAQTD employee name ,job,working location ,deparment name who or all working in
+sales deparment
+
+select e.ename,e.job,d.loc,d.dept
+        where e.deptno=d.deptno
+        and d.dname='SALES' ;
+
+WAQTD  all details of manager and salesman acording with where depno and dname
+
+select e.*,d.deptno,d.dname
+        from emp e,dept d
+        where e.deptno=d.deptno
+                and JOB='MANAGER' OR JOB='SALESMAN';

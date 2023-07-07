@@ -1,0 +1,57 @@
+1> WAQTD all the  employee's who consist at least one 'O' in a
+
+select * from emp where deptno=(select deptno where loc like '%o%');
+select * from emp where deptno=all(select deptno where loc like '%o%');
+
+WAQTD dep name location of employee SMITH and SCOTT ;
+
+        select ename from emp where deptno in(select DNAME from dept where deptno 
+        select DNAME from dept where deptno in (select deptno frpm emp where ename in ('
+
+select DNAME,loc from dept where deptno in 
+                (select deptno from emp where ename in ('SMITH','SCOTT'));
+
+WAQTD all the details of the employee who are working in sales and research department
+
+select * from emp where deptno in 
+                (select deptno from dept where DNAME in ('SALES','RESEARCH'));
+
+**********************************************
+        WAQTD TO FETCH SECOND salary
+
+select MAX(SAL) FROM EMP WHERE SAL<(select MAX(sal) from emp);
+select MAX(SAL) FROM EMP WHERE SAL!=(select MAX(sal) from emp);
+
+
+
+select MAX(SAL) 
+        FROM EMP 
+                WHERE SAL<(select MAX(sal) from emp
+                         where sal<(select max(sal) from emp));
+
+output-->     
+                MAX(SAL)
+                ----------
+                2975
+----------------------->
+syntax for getting SECOND higest sal
+
+        select max(sal) from table_Name
+         where sal<( select max(sal) from table_Name 
+                where ------------ from table_Name 
+
+********************************************************************************
+
+WAQTD all the details of the employee who get SECOND higest salary ..
+
+select * from emp where sal in(select MAX(SAL) FROM EMP WHERE SAL<(select MAX(sal) from emp));
+output-->
+        
+  EMPNO ENAME                JOB                         MGR HIREDATE         SAL       COMM     DEPTNO
+------- -------------------- -------------------- ---------- --------- ---------- ---------- ----
+   7788 SCOTT                ANALYST                    7566 19-APR-87       3000                    20
+   7902 FORD                 ANALYST                    7566 03-DEC-81       3000                    20
+
+   
+
+
